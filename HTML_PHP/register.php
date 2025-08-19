@@ -1,0 +1,210 @@
+<?php
+session_start();
+include('db.php'); // connection file
+
+$success = '';
+$error = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $password = $_POST['password'];
+    $retype = $_POST['retype'];
+    $role = $_POST['role'];  // Get the role from the form
+
+    if ($password !== $retype) {
+        $error = "Passwords do not match.";
+    } elseif ($role !== 'patient' && $role !== 'caretaker') {
+        $error = "Invalid role selected.";
+    } else {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Check if user already exists
+        $check = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $result = $check->get_result();
+
+        if ($result->num_rows > 0) {
+            $error = "Email is already registered.";
+        } else {
+            // Include role in insert query
+            $stmt = $conn->prepare("INSERT INTO users (username, email, phone, password, role) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $username, $email, $phone, $hashed_password, $role);
+
+            if ($stmt->execute()) {
+                $success = "Registration successful. <a href='/HTML_PHP/login.php'>Login here</a>";
+            } else {
+                $error = "Something went wrong. Please try again.";
+            }
+
+            $stmt->close();
+        }
+        $check->close();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: url('/images/sliderimg.jpg') center center/cover no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: -1;
+    }
+    .glass-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25%;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: white;
+    }
+
+    .glass-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 30px;
+      border: 2px solid #fff;
+      top: 30px;
+      font-size: 15px;
+      cursor: pointer;
+      color: #fff;
+      border-radius: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+    }
+
+    .form-control::placeholder {
+      color: #ddd;
+    }
+
+    .btn-custom {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    label {
+      font-weight: 300;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .message.success {
+      color: #c1f0c1;
+    }
+
+    .message.error {
+      color: #f99;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-form" id="register">
+    <a href="/HTML_PHP/Homepage.html"><span class="close-btn">
+      <i class="glyphicon glyphicon-arrow-left"></i> Back</span>
+    </a>
+
+    <h2><i class="glyphicon glyphicon-edit"></i> Register</h2>
+
+    <?php if ($success): ?>
+      <div class="message success"><?php echo $success; ?></div>
+    <?php elseif ($error): ?>
+      <div class="message error"><?php echo $error; ?></div>
+    <?php endif; ?>
+
+    <form action="" method="POST">
+      <div class="form-group">
+        <label for="username"><i class="glyphicon glyphicon-user"></i> UserName</label>
+        <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="glyphicon glyphicon-envelope"></i> Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label for="phone"><i class="glyphicon glyphicon-earphone"></i> Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Enter your phone number">
+      </div>
+
+      <div class="form-group">
+        <label for="role"><i class="glyphicon glyphicon-user"></i> Select Role</label>
+        <select class="form-control" id="role" name="role" required>
+          <option value="" disabled selected>Select your role</option>
+          <option value="patient">Patient</option>
+          <option value="caretaker">Caretaker</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="password"><i class="glyphicon glyphicon-lock"></i> Password</label>
+        <input type="password" class="form-control" id="password" name="password" required placeholder="Enter a password">
+      </div>
+
+      <div class="form-group">
+        <label for="retype"><i class="glyphicon glyphicon-retweet"></i> Retype Password</label>
+        <input type="password" class="form-control" id="retype" name="retype" required placeholder="Retype your password">
+      </div>
+
+      <button type="submit" class="btn btn-block btn-custom">
+        <i class="glyphicon glyphicon-ok"></i> Create Account
+      </button>
+
+      <div class="account-control text-center" style="margin-top: 15px;">
+        <p style="margin-bottom: 5px;">Already have an account?</p>
+        <a href="/HTML_PHP/login.php">
+          <span style="color: rgba(251, 113, 0, 0.9); font-size: 15px; cursor: pointer;">
+            <i class="glyphicon glyphicon-log-in"></i> Login
+          </span>
+        </a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

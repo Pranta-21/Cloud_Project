@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      body {
+        background: url('/images/sliderimg.jpg') center center/cover no-repeat;
+        position: relative;
+        min-height: 100vh;
+      }
+      body::after {
+        position: fixed;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: -1;
+      }
+      .container-style{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        background-color: #fff;
+        box-shadow: 0px 16px 32px rgba(5, 88, 177, 0.9);
+        border-radius: 10px;
+      }
+      .close-btn {
+        position: absolute;
+        right: 20px;
+        border: 2px solid #810909;
+        top: 20px;
+        color: #971f1f;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .heading-color{
+        margin: 0;
+        padding: 0;
+      }
+      .Ucontainer{
+        padding: 20px;
+      }
+      .rowcontainer{
+        display: flex;
+        gap: 30px;
+      }
+      .panel-heading{
+        margin-top: 10px;
+        background-color: #6fc4eb;
+      }
+  
+      .profileimg{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+  <!--User Profile-->
+    <div class="container-style">
+      <div class="Ucontainer">
+        <h2 class="heading-color">My Profile</h2><br>
+        <a href="/HTML_PHP/patient_dashboard.php"><span class="close-btn">Back</span></a>
+        <div class="rowcontainer">
+          <div>
+            <img src="/images/profile_jihan.jpg" alt="Profile Picture" class="profileimg">
+          </div>
+          <div>
+            <h3><b>Imratul Islam Jihan</b></h3>
+            <p>Admin</p>
+            <p>University of Frontier technology Bangladesh (UFTB)</p>
+          </div>
+        </div>
+
+        <div class="panel-heading">Personal Information <button class="btn btn-primary btn-xs pull-right">Edit</button></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>First Name:</strong> Imratul Islam </p>
+                <p><strong>Email Address:</strong> jihan@gmail.com</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Last Name:</strong> Jihan</p>
+                <p><strong>Phone Number:</strong> 017XXXXXXXX</p>
+                <p><strong>Date of Birth:</strong> 03-03-2003</p>
+                <p><strong>User Role:</strong> Admin</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-heading">Address <button class="btn btn-primary btn-xs pull-right">Edit</button></div>
+          <div class="panel-body">
+            <p><strong>Country:</strong> Bangladesh</p>
+            <p><strong>City:</strong> Kaliakair Gajipur</p>
+            <p><strong>Postal Code:</strong> ERT 1254</p>
+          </div>
+        </div>     
+      </div>
+                <!--End of User Profile-->
+  </body>
+</html>

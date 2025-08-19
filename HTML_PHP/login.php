@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Patient Portal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      background: url('/images/sliderimg.jpg') center center/cover no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::after {
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: -1;
+    }
+    .glass-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: white;
+    }
+
+    .glass-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 30px;
+      border: 2px solid #fff;
+      top: 30px;
+      font-size: 15px;
+      cursor: pointer;
+      color: #fff;
+      border-radius: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+    }
+
+    .form-control::placeholder {
+      color: #ddd;
+    }
+
+    .btn-custom {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    label {
+      font-weight: 300;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/HTML_PHP/LoginProcess.php" method="POST" id="login">
+    <div class="glass-form">
+      <a href="/HTML_PHP/Homepage.html">
+        <span class="close-btn">
+          <i class="glyphicon glyphicon-arrow-left"></i> Back
+        </span>
+      </a>
+
+      <h2><i class="glyphicon glyphicon-user"></i> Login</h2>
+
+      <div class="form-group">
+        <label for="username"><i class="glyphicon glyphicon-user"></i> Username</label>
+        <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password"><i class="glyphicon glyphicon-lock"></i> Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn btn-block btn-custom">
+        <i class="glyphicon glyphicon-log-in"></i> Login
+      </button>
+
+      <div class="account-control text-center" style="margin-top: 15px;">
+        <p style="margin-bottom: 5px;">Don't have an account?</p>
+        <a href="/HTML_PHP/register.php">
+          <span style="color: rgba(36, 206, 23, 0.9); font-size: 15px; cursor: pointer;">
+            <i class="glyphicon glyphicon-pencil"></i> Register
+          </span>
+        </a>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

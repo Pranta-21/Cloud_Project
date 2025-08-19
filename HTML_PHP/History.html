@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medicine History</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <style>
+    body {
+      background: url('/images/sliderimg.jpg') center center/cover no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::after {
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      z-index: -1;
+    }
+    .container-style {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      box-shadow: 0px 16px 32px rgba(5, 88, 177, 0.9);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      padding: 3px 10px;
+      background-color: #c82333;
+      color: white;
+      text-decoration: none;
+    }
+    .medicine-table th, .medicine-table td {
+      text-align: center;
+    }
+    .status-taken {
+      color: green;
+      font-size: 15px;
+    }
+    .status-missed {
+      color: red;
+      font-size: 15px;
+    }
+    .heading-color {
+      padding: 20px;
+      margin-top: 0;
+      background-color: rgba(187, 13, 13, 0.8);
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-style">
+    <h4 class="heading-color">Medicine History</h4>
+    <a href="/HTML_PHP/Dashboard.html" class="close-btn">Back</a>
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php if (empty($history)) : ?>
+            <tr><td colspan="2" style="text-align: center;">No history found.</td></tr>
+          <?php else : ?>
+            <?php foreach ($history as $entry) : ?>
+              <tr>
+                <td><?php echo date("F j, Y", strtotime($entry['intake_date'])); ?></td>
+                <td class="<?php echo strtolower('status-' . $entry['status']); ?>">
+                  <?php echo htmlspecialchars($entry['status']); ?>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthyBuddy</title>
+
+  <!-- Bootstrap 3 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Bootstrap 3 JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/CSS/Homepage.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="home" class="custom-navbar">
+    <div class="logo">
+      <img src="/images/logo1.png" alt="HealthyBuddy Logo">HealthyBuddy
+    </div>
+    <ul class="nav-links">
+      <li><a href="#"><span>Home</span></a></li>
+      <li><a href="#feature"><span>Features</span></a></li>
+      <li><a href="#instruction"><span>Instructions</span></a></li>
+      <li><a href="#health"><span>HealthTips</span></a></li>
+      <li><a href="#contact"><span>Contact</span></a></li>
+      <li><a href="/HTML_PHP/login.php"><span>Login/SignUp</span></a></li>
+    </ul>
+  </nav>
+  <br>
+
+  <!-- Carousel -->
+  <div id="heroCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#heroCarousel" data-slide-to="1"></li>
+      <li data-target="#heroCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="item active">
+        <header class="hero-section" style="background-image: url('/images/sliderimg2.jpg');">
+          <div class="hero-content text-white">
+            <h1>Welcome to <span class="text-danger">HealthyBuddy</span></h1>
+            <p>Your trusted partner for timely medicine reminders</p>
+            <a class="btn btn-danger btn-lg" href="/HTML_PHP/Login.html">Get Started</a>
+          </div>
+        </header>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="item">
+        <header class="hero-section" style="background-image: url('/images/sliderimg4.jpg');">
+          <div class="hero-content text-white">
+            <h1>Stay Healthy with <span class="text-danger">Reminders</span></h1>
+            <p>Never miss a dose again</p>
+            <a class="btn btn-light btn-lg" href="/HTML_PHP/Login.html" style="color: #dc3545;">Explore</a>
+          </div>
+        </header>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="item">
+        <header class="hero-section" style="background-image: url('/images/img.avif');">
+          <div class="hero-content text-white">
+            <h1><span class="text-white">Your Health,</span> <span class="text-danger">Our Priority</span></h1>
+            <p>Simple. Smart. Effective.</p>
+            <a class="btn btn-outline-danger btn-lg" href="/HTML_PHP/Login.html">Join Now</a>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#heroCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#heroCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <!-- Features Section -->
+  <section id="feature" class="container-fluid section-space">
+    <div class="well well-lg custom-card">
+      <div class="featureContainer">
+        <h2 class="text-center" style="color: #2b3e50;">Our Key Features</h2>
+        <div class="featureBox">
+
+          <!-- Feature Cards -->
+          <div class="featureBoxes">
+            <div class="circle-icon"></div>
+            <h3>Upload Medicine</h3>
+            <p>Easily upload a photo of your medicine and let the app manage it with correct dosage info.</p>
+          </div>
+
+          <div class="featureBoxes">
+            <div class="circle-icon"></div>
+            <h3>Set Reminders</h3>
+            <p>Get timely alerts to take your medicine on schedule with our smart reminder system.</p>
+          </div>
+
+          <div class="featureBoxes">
+            <div class="circle-icon"></div>
+            <h3>Dose Management</h3>
+            <p>Track each dose, whether it's once or multiple times a day. Stay on top of your health.</p>
+          </div>
+
+          <div class="featureBoxes">
+            <div class="circle-icon"></div>
+            <h3>User Profile</h3>
+            <p>Customize your profile, manage your health history, and keep everything organized.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Quotes -->
+      <div style="background-color: rgb(200, 248, 248); padding: 20px;">
+        <h2 style="text-align: center;">"Quotation from the Developers"</h2>
+        <hr>
+        <div class="quotation">
+          <div>
+            <img src="/images/profile_sajib.jpg" alt="Sajib Kumar Paul">
+            <span>Sajib Kumar Paul</span>
+            <p><strong>Frontend Developer (UI/UX)</strong></p>
+            <blockquote>My goal was to design a clean, accessible interface that feels intuitive and comforting—because healthcare should never be confusing.</blockquote>
+          </div>
+          <div>
+            <img src="/images/profile_jihan.jpg" alt="Imratul Islam Jihan">
+            <span>Imratul Islam Jihan</span>
+            <p><strong>Full-Stack Developer (Integrator & Features)</strong></p>
+            <blockquote>From image uploads to smart reminders, I focused on blending features that truly assist users in their health journey.</blockquote>
+          </div>
+          <div>
+            <img src="/images/profile_pranta.jpg" alt="Pranta Mondal">
+            <span>Pranta Mondal</span>
+            <p><strong>Backend Developer (Database & Logic)</strong></p>
+            <blockquote>Behind every click is a system built for security and reliability. I ensured that your data is safe and every function works seamlessly.</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructions Section -->
+  <section id="instruction" class="container-fluid section-space">
+    <h2>Instructions</h2>
+    <div class="well well-lg custom-card">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="separation">
+            <div style="background-color: #f0eaeb;">
+              <h3>Instructions for Using HealthyBuddy</h3>
+              <ul style="padding-left: 20px; line-height: 1.8;">
+                <li><strong>Create an Account:</strong> Click on the "SignUp" link in the navigation bar and fill in your personal and medical details.</li>
+                <li><strong>Login:</strong> Use your registered email and password to log into your dashboard.</li>
+                <li><strong>Upload Medicine:</strong> Navigate to the "Upload Medicine" section and upload a clear image of your medicine. You can also enter the name and dosage manually.</li>
+                <li><strong>Set Reminders:</strong> Specify the times and frequency for each medicine. You can also set recurring reminders (e.g., daily, weekly).</li>
+                <li><strong>Track Doses:</strong> Check off medicines once taken to keep track of your daily health routine.</li>
+                <li><strong>Manage Profile:</strong> Edit your personal information, medical history, and update your emergency contacts from the profile page.</li>
+                <li><strong>Enable Notifications:</strong> Allow push or email notifications to receive timely medicine alerts.</li>
+                <li><strong>Access Health Tips:</strong> Scroll down to the Health Tips section to read valuable wellness and lifestyle guidance.</li>
+                <li><strong>Need Help?</strong> Visit the Contact Us section or email our support team for assistance.</li>
+              </ul>
+            </div>
+            <div style="background-color: azure;">
+              <h2>Video Support (Instruction)</h2>
+              <hr>
+              <video width="100%" height="450px" controls>
+                <source src="/images/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Health Tips Section -->
+  <section id="health" class="container-fluid section-space">
+    <h2 class="text-center">Health Tips</h2>
+    <div class="row text-center">
+
+      <!-- Tip Cards -->
+      <div class="col-sm-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="/images/water glass.jpg" class="image" alt="Drink Water">
+              <h4>Drink Water</h4>
+              <p>Do you drink enough water daily?</p>
+              <button class="btn btn-outline-danger">Read More</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Details</h4>
+              <p>Staying hydrated is crucial. Drinking water boosts metabolism and helps your organs function properly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="/images/nutrition.jpeg" class="image" alt="Nutrition">
+              <h4>Nutrition</h4>
+              <p>Are you aware of your food habits?</p>
+              <button class="btn btn-outline-danger">Read More</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Details</h4>
+              <p>A balanced diet improves immunity and energy. Be mindful of what you eat daily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="/images/exercise.jpeg" class="image" alt="Exercise">
+              <h4>Exercise</h4>
+              <p>Are you physically active?</p>
+              <button class="btn btn-outline-danger">Read More</button>
+            </div>
+            <div class="flip-card-back">
+              <h4>Details</h4>
+              <p>Regular exercise helps prevent disease, improves mood, and strengthens the body.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <div id="contact" class="container section-space">
+    <h2 class="text-center"><i class="fa fa-envelope"></i> Contact Us</h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h4><i class="fa fa-map-marker"></i> Address</h4>
+        <p>Kaliakair, Gazipur-1750, Bangladesh</p>
+      </div>
+      <div class="col-md-4">
+        <h4><i class="fa fa-envelope"></i> Email</h4>
+        <p>Jihan@gmail.com</p>
+      </div>
+      <div class="col-md-4">
+        <h4><i class="fa fa-phone"></i> Phone</h4>
+        <p>019XXXXXXXX</p>
+      </div>
+    </div>
+    <br><br><br><br><br>
+
+    <div class="text-center social-links">
+      <h4>Also Find Us on</h4>
+      <a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+      <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+      <a href="#"><i class="fa fa-linkedin"></i> LinkedIn</a>
+      <a href="#"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+    <footer class="text-center">
+      <p>©2023 HealthyBuddy. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
