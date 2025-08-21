@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // No user found
-        echo "<script>alert('Username not found.'); window.location.href='/HTML_PHP/login.php';</script>";
+        echo "<script>alert('Username not found.'); window.location.href='/HTML_PHP/index.php';</script>";
     }
 
     $stmt->close();
