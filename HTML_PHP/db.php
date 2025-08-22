@@ -1,7 +1,7 @@
 <?php
-$servername = "bdumoodleserver.mysql.database.azure.com
+$servername = "hb-server.mysql.database.azure.com"
 $username = "pranta";  // Default XAMPP
-$password = "pranta25.";      // Default is blank
+$password = "pranta2000";      // Default is blank
 $dbname = "medicare";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
